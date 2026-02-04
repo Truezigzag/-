@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OC 人物档案 - 墨粒感</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #1f1f1f;
+      --ink-soft: #2e2e2e;
+      --paper: #f4f1ea;
+      --paper-deep: #e8e1d5;
+      --accent: #6a7a70;
+      --accent-2: #b18b6d;
+      --card-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Noto Serif SC", "Songti SC", "Source Han Serif SC", serif;
+      background: var(--paper);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 0),
+        radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 0),
+        linear-gradient(120deg, rgba(32, 32, 32, 0.06), rgba(255, 255, 255, 0));
+      background-size: 140px 140px, 90px 90px, 100% 100%;
+      mix-blend-mode: multiply;
+      pointer-events: none;
+      opacity: 0.6;
+      z-index: -1;
+    }
+
+    header {
+      padding: 40px 5vw 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .title {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .seal {
+      width: 58px;
+      height: 58px;
+      border-radius: 10px;
+      background: linear-gradient(145deg, #6d3d2d, #b3563f);
+      color: #f7efe5;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      letter-spacing: 4px;
+      font-size: 16px;
+      box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.3);
+    }
+
+    .headline {
+      font-size: clamp(28px, 3vw, 40px);
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .subtitle {
+      color: var(--ink-soft);
+      font-size: 15px;
+      max-width: 700px;
+      line-height: 1.6;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 320px);
+      gap: 28px;
+      padding: 0 5vw 60px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: var(--radius);
+      box-shadow: var(--card-shadow);
+      padding: 26px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, rgba(0, 0, 0, 0.05), transparent 60%);
+      pointer-events: none;
+    }
+
+    .video-card {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .thumbnail {
+      aspect-ratio: 16 / 9;
+      border-radius: 18px;
+      background:
+        linear-gradient(135deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.1)),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect width='320' height='180' fill='%23c1b7a6'/%3E%3Cpath d='M0 120 Q80 60 160 120 T320 120' stroke='%235e5b53' stroke-width='6' fill='none'/%3E%3Ccircle cx='240' cy='70' r='26' fill='%238b8376'/%3E%3C/svg%3E");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .thumbnail::before {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: 12px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(31, 31, 31, 0.08);
+      color: var(--ink-soft);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .intro h2 {
+      font-size: 22px;
+      margin: 12px 0 6px;
+    }
+
+    .intro p {
+      line-height: 1.7;
+      color: var(--ink-soft);
+      font-size: 14px;
+    }
+
+    .toc {
+      display: grid;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--ink-soft);
+    }
+
+    .toc a {
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    .toc a span:last-child {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .scroll-section {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .section-body {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--ink-soft);
+    }
+
+    .info-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      position: sticky;
+      top: 24px;
+      align-self: start;
+    }
+
+    .info-panel .card {
+      padding: 20px;
+    }
+
+    .profile {
+      display: grid;
+      gap: 12px;
+    }
+
+    .profile h3 {
+      font-size: 20px;
+      letter-spacing: 1px;
+    }
+
+    .profile-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px dashed rgba(0, 0, 0, 0.2);
+      padding-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .profile-item span:last-child {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .skills {
+      display: grid;
+      gap: 10px;
+    }
+
+    .pill {
+      background: rgba(106, 122, 112, 0.12);
+      border: 1px solid rgba(106, 122, 112, 0.25);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    .quote {
+      font-style: italic;
+      color: var(--accent-2);
+      background: rgba(177, 139, 109, 0.12);
+      border-left: 3px solid var(--accent-2);
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: 13px;
+    }
+
+    footer {
+      padding: 20px 5vw 40px;
+      font-size: 12px;
+      color: rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .video-card {
+        grid-template-columns: 1fr;
+      }
+
+      .info-panel {
+        position: static;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="title">
+      <div class="seal">档案</div>
+      <div>
+        <div class="headline">南枝 · 霜羽</div>
+        <div class="subtitle">一位擅长以水墨封存记忆的记录者，常驻雾夜港口。档案以颗粒感墨韵与极简网格呈现，模拟视觉频道卡片与百科纵向阅读的融合。</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="scroll-section">
+      <article class="card video-card">
+        <div class="thumbnail" aria-hidden="true"></div>
+        <div class="intro">
+          <span class="tag">OC PROFILE</span>
+          <h2>角色概述</h2>
+          <p>南枝自称“霜羽”，在雾夜中收集城镇边缘的故事。她的墨盒里装着褪色的残影，能够让人短暂重温遗忘的片段，但每次使用都会损耗自身的记忆。</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="section-title">目录导览</div>
+        <div class="toc">
+          <a href="#background"><span>背景设定</span><span>01</span></a>
+          <a href="#personality"><span>性格与动机</span><span>02</span></a>
+          <a href="#abilities"><span>能力说明</span><span>03</span></a>
+          <a href="#hook"><span>剧情钩子</span><span>04</span></a>
+        </div>
+      </article>
+
+      <article class="card" id="background">
+        <div class="section-title">背景设定</div>
+        <p class="section-body">霜羽出生于雨影巷的制灯家族。成年后，她在一次暴潮中失去父亲，只留下未完成的灯谱。她将灯谱转化为墨纹，将失去的记忆化作颗粒般的浮尘。</p>
+      </article>
+
+      <article class="card" id="personality">
+        <div class="section-title">性格与动机</div>
+        <p class="section-body">外表沉静，实则对人群与记忆有强烈的好奇心。她希望找到能承载记忆而不被侵蚀的材料，以守护雾夜港口的历史。</p>
+      </article>
+
+      <article class="card" id="abilities">
+        <div class="section-title">能力说明</div>
+        <p class="section-body">霜羽能在水墨中植入碎片式影像，形成短暂的“记忆放映”。她的画卷越长，能够承载的故事越完整，但也越容易被外界噪点干扰。</p>
+      </article>
+
+      <article class="card" id="hook">
+        <div class="section-title">剧情钩子</div>
+        <p class="section-body">雾夜港口即将开启一次禁忌的潮汐仪式，霜羽被邀请为仪式绘制主图，却发现参与者隐瞒了与她父亲相关的秘密。</p>
+      </article>
+    </section>
+
+    <aside class="info-panel">
+      <div class="card profile">
+        <h3>人物档案</h3>
+        <div class="profile-item"><span>身份</span><span>记忆记录者</span></div>
+        <div class="profile-item"><span>年龄</span><span>24</span></div>
+        <div class="profile-item"><span>阵营</span><span>雾夜港</span></div>
+        <div class="profile-item"><span>关键词</span><span>水墨 / 记忆 / 港口</span></div>
+        <div class="profile-item"><span>色调</span><span>灰绿 + 暖褐</span></div>
+      </div>
+
+      <div class="card">
+        <div class="section-title">标志物件</div>
+        <div class="skills">
+          <div class="pill">封影墨盒</div>
+          <div class="pill">裂纹灯谱</div>
+          <div class="pill">潮汐罗盘</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="section-title">代表台词</div>
+        <div class="quote">“记忆不是线性河流，而是雾里漂浮的灯。”</div>
+      </div>
+    </aside>
+  </main>
+
+  <footer>
+    颗粒感水墨风 UI 概念稿 · 可替换内容与视觉素材
+  </footer>
+</body>
+</html>
