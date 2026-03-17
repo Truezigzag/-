@@ -1,0 +1,713 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>《烬契四重奏》角色设定与能力体系综合研究报告【生殖与角色定位专章】</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="325daf81-14f2-8019-8a2b-d2c09a41f15e" class="page sans"><header><h1 class="page-title" dir="auto">《烬契四重奏》角色设定与能力体系综合研究报告【生殖与角色定位专章】</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-8075-85ee-faab23a92581" class="">摘要</h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8030-bcab-f89e4e653608" class="">本报告在前期研究基础上，针对团队成员的生殖机制、角色定位及性格反差进行专项深入分析。研究聚焦于李松瑞与德拉克作为唯二可产蛋个体的生理特性、六只小龙的血统来源差异、以及岚步的双面性格特征。通过系统梳理交尾记录、产蛋日志及日常行为观察，构建完整的生殖角色认知模型。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8014-9c85-fbe412c5ef07" class=""><strong>关键词</strong>：生殖机制；角色定位；反差性格；血统分析；交尾记录</p></div><div style="display:contents" dir="auto"><hr id="325daf81-14f2-80aa-b1cc-c06dd5918551"/></div><div style="display:contents" dir="auto"><h2 id="325daf81-14f2-803d-abf1-d0f8db822c11" class="">第一章 生殖机制与角色定位总论</h2></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-80f7-99e5-e8b4412f5850" class="">1.1 核心设定概述</h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-806a-8951-fa96e6c49034" class="">【破罐咖啡馆】团队成员中，仅有李松瑞和德拉克具备产蛋能力。这一生理特性源于他们共同的龙族血统——东方龙与西方龙的生殖系统具有独特的可塑性，能够在交尾过程中根据意愿切换角色定位。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8085-8b5e-fe6c1a77c4e2" class="">其他成员（岚步、破晓、苍蓝）不具备产蛋能力，在交尾中始终处于被插入方。但这一设定并不影响他们在其他维度的亲密关系表达。</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-807a-a932-e7c6050f80d2" class="">1.2 角色定位分析</h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-802b-9bb4-e19985e5a23d" class="">李松瑞和德拉克在性格上都属于“粗口猛1”类型，在大多数交尾场景中扮演插入方。他们习惯用脏话表达情绪，享受掌控感，在关系中处于主导地位。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8086-a3f1-f0d18f8c36e6" class="">然而，在产蛋这一特殊情境下，他们可以并且愿意切换到被插入方（0号）的角色。这种切换并非被动接受，而是主动控制的结果——他们可以在交尾过程中通过意念控制生殖系统的状态，选择是否开启“产蛋模式”。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80c4-8f17-ed302144ad34" class="">这种角色灵活性使他们能够与多位伴侣交尾产蛋，同时保持内心的主导定位。他们在被插入时确实能感受到快感，甚至有几分享受，但始终更偏好在上面掌控全局。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8077-8247-cfb6b77a35fe" class="">这一特性仅限龙族，是他们区别于其他种族的核心生理特征。</p></div><div style="display:contents" dir="auto"><hr id="325daf81-14f2-8090-b485-dd563154ff7a"/></div><div style="display:contents" dir="auto"><h2 id="325daf81-14f2-80d7-9e4d-f11e4f904b8a" class="">第二章 李松瑞 —— 双面猛1·产蛋核心</h2></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-80d1-9ab0-f8be0b9d2d01" class="">2.1 角色定位详析</h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-809c-8b8c-e17024b84ce4" class="">李松瑞作为东方龙，是团队中最早被确认具备产蛋能力的个体。他的生殖系统具有高度的可塑性，能够在交尾过程中根据意愿调整内部结构，以适配不同伴侣的生理特征。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8002-9a2c-f17093866b7e" class="">在大多数交尾场景中，他扮演插入方（1号）角色。他的粗口风格在这一时刻表现得尤为突出，会用各种脏话表达情绪，享受掌控的快感。岚步曾评价他“在上面的时候骂得最凶，但也最温柔”。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-806b-b1c8-f42aecdff0cc" class="">当需要产蛋时，他可以主动切换到被插入方（0号）状态。这一切换并非被动，而是他主动控制的结果——他可以精确控制何时开启“产蛋模式”，何时关闭。在被插入时，他确实能感受到强烈的快感，甚至有几分享受，但事后总会补上一句“操，偶尔在下面也挺爽，但还是上面舒服”。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8067-bae1-e4236cd53e73" class="">他与多位伴侣产下过蛋，但只有特定的一部分被孵化成了小龙，其余均用于制作龙蛋蛋糕。</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-80b6-8b27-da0a5cf83011" class="">2.2 产蛋记录统计</h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8002-b3ce-dc01b56c3146" class="">李松瑞的产蛋历史极为丰富，根据德拉克的记录统计：</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80c8-a673-f045bbcba458" class="">与岚步交尾产蛋约三十枚，其中一枚孵化成灰灰，其余用于蛋糕制作。与破晓交尾产蛋约二十五枚，其中一枚孵化成金金，其余用于蛋糕制作。与苍蓝交尾产蛋约二十枚，其中一枚孵化成蓝蓝，其余用于蛋糕制作。与德拉克交尾产蛋约十五枚，全部用于蛋糕制作。与邪神交尾产蛋约十枚，其中一枚孵化成暗暗，其余用于蛋糕制作。与财神交尾产蛋约五枚，其中一枚孵化成亮亮，其余用于蛋糕制作。与阎王交尾产蛋约五枚，其中一枚孵化成黑金，其余用于蛋糕制作。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8032-b4db-fd7211ae3f0f" class="">总计产蛋超过一百一十枚，其中六枚孵化，其余均转化为咖啡馆的招牌甜品“龙蛋蛋糕”。</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-8043-a953-f4762f6c996c" class="">2.3 性格反差体现</h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80d4-a6da-e65a81bf223c" class="">李松瑞在公开场合和私密场合展现出明显的反差。在咖啡馆日常中，他摆烂懒散，能躺着绝不坐着。但在与岚步独处时，他会展现出罕见的温柔面，虽然嘴上依然骂骂咧咧，但行动上处处体现关怀。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8087-ae2b-cd2e6e6140b3" class="">这种反差在他与德拉克相处时也有体现。两人都爱说脏话，都爱开黄腔，在一起时经常互骂“操”，但彼此都清楚那是亲密的表现。</p></div><div style="display:contents" dir="auto"><hr id="325daf81-14f2-80b9-acd8-d5239c971010"/></div><div style="display:contents" dir="auto"><h2 id="325daf81-14f2-8067-b616-d84388966872" class="">第三章 德拉克 —— 西方猛1·产蛋副核</h2></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-805d-9cb0-d777bfb5f765" class="">3.1 角色定位详析</h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8014-9485-dc8470ed0935" class="">德拉克作为西方龙，是团队中第二个具备产蛋能力的个体。他的生殖系统与李松瑞相似，具有高度的可塑性，能够在交尾过程中根据意愿调整状态。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80a3-b8fc-f48f1f5a19fc" class="">与李松瑞类似，他在大多数交尾场景中扮演插入方（1号）角色。他的粗口风格带有西方龙的霸气，用词更为夸张，经常一边交尾一边喊着“在西方我是王”之类的台词。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8067-89a3-f77b778c963b" class="">当需要产蛋时，他同样可以切换到被插入方（0号）状态。他的切换控制能力与李松瑞相当，可以精确控制产蛋时机。在被插入时，他也能感受到快感，翅膀会不受控制地抖动，但结束后会强调“还是上面更适合我”。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80b8-9cb1-d29cb6d6e840" class="">值得注意的是，德拉克只与李松瑞产过蛋，与其他真神（财神、阎王）没有交尾关系。这与他的性格有关——他虽然贪财，但对财神保持着某种敬畏，认为“交尾归交尾，拜神归拜神”。</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-80ce-808b-d60d57d4b0c4" class="">3.2 产蛋记录统计</h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8098-8326-e4ab42bd0626" class="">德拉克的产蛋记录相对简洁：</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-804a-a992-ea2d1e3bb206" class="">与李松瑞交尾产蛋约十五枚，全部用于蛋糕制作。与苍蓝交尾产蛋约十枚，其中一枚孵化成蓝蓝，其余用于蛋糕制作。与岚步交尾产蛋约十枚，其中一枚孵化成灰灰，其余用于蛋糕制作。与破晓交尾产蛋约十枚，其中一枚孵化成金金，其余用于蛋糕制作。与邪神交尾产蛋约五枚，全部用于蛋糕制作。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-807b-b4ed-e6c8018be45f" class="">总计产蛋约五十枚，其中三枚孵化，其余均用于蛋糕制作。</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-8067-bb24-e59c414ad53c" class="">3.3 性格反差体现</h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80d2-b8b4-cc826740aded" class="">德拉克的性格反差主要体现在“贪财”与“重情”之间。他表面上看钱比什么都重，但在家人需要时，他会毫不犹豫地拿出全部金币。李松瑞曾评价他“嘴上说着钱钱钱，行动上永远是我们我们我们”。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80fd-83c9-c8ee27a61240" class="">他与李松瑞的关系尤为特殊。两人都是粗口猛1，在一起时经常互不相让，但在关键时刻总能默契配合。李松瑞说他是“臭味相投的损友”，他说李松瑞是“唯一能和我对骂三小时不重样的龙”。</p></div><div style="display:contents" dir="auto"><hr id="325daf81-14f2-809e-82c0-dcefe9a22444"/></div><div style="display:contents" dir="auto"><h2 id="325daf81-14f2-80b9-8aa5-fdfdc9336b40" class="">第四章 六只小龙血统分析</h2></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-803c-89c7-f042db2c9701" class="">4.1 孵化血统差异</h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8052-89d0-fd636d90039f" class="">六只小龙的血统来源存在本质差异，这一差异源于产蛋方与孵化方的不同组合。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80f3-94c8-ed99d7daf99f" class="">蓝蓝、灰灰、金金三只小龙，是与德拉克交尾后产的蛋孵化的。这意味着他们的另一位父亲是德拉克，因此继承了德拉克的翅膀纹路和部分西方龙特征。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80be-92eb-f6dcc6fabdba" class="">暗暗、亮亮、黑金三只小龙，是与李松瑞产的蛋孵化的。他们的另一位父亲分别是邪神、财神、阎王，因此各自继承了这些真神的特征——暗暗的触手和邪神气息，亮亮的发光和招财能力，黑金的暗金色光芒和阴间感知。</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-805d-9e1b-ea971abe996c" class="">4.2 产蛋用途区分</h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-808c-95ac-d3f948d9c148" class="">李松瑞和德拉克产出的蛋，在用途上有严格区分：</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-802c-b5be-d30c8202e57f" class="">与德拉克交尾产出的蛋，大部分用于制作龙蛋蛋糕，只有少数几枚被孵化成小龙。这是因为德拉克作为西方龙，产蛋数量有限，需要平衡“做蛋糕赚钱”和“繁衍后代”两种需求。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8041-9938-f59a4a68f646" class="">与岚步、破晓、苍蓝交尾产出的蛋，同样大部分用于蛋糕制作，只有各一枚被孵化。这体现了家庭内部的平衡——每个成员都有一个亲生孩子。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80a3-8802-f84cae025655" class="">与邪神、财神、阎王交尾产出的蛋，除了各一枚被孵化外，其余也用于蛋糕制作。这些真神级交尾产出的蛋制作的蛋糕，具有特殊效果——邪神蛋糕能激发欲望，财神蛋糕能招财，阎王蛋糕能带来好运。</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-8035-89aa-df5fac4e4c49" class="">4.3 血统特征总结</h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-800f-bc51-c3a77b73b686" class="">蓝蓝继承苍蓝的鲨鱼特征和德拉克的翅膀纹路，性格活泼，喜欢追尾巴，游泳能力超强，可以短时间飞行。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8074-b153-c7b2ebf73423" class="">灰灰继承岚步的狼特征和德拉克的翅膀纹路，性格憨厚，喜欢闻东西，嗅觉超强，可以飞行，还继承了德拉克的数钱爱好。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-806b-948c-d4610782b3ca" class="">金金继承破晓的狮子特征和德拉克的翅膀纹路，性格认真，喜欢擦东西，可以飞行，数钱最准，还继承了破晓的情绪感知能力。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8052-b47c-eaba20dfbfcc" class="">暗暗继承邪神的黑色触手和邪神气息，性格安静，喜欢用触手缠人，可以和邪神沟通。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80f0-a28d-c9d045ff7629" class="">亮亮继承财神的发光能力和招财体质，性格活泼，喜欢发光，可以招阳间财。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-805b-ad46-f2d7a17d4fdb" class="">黑金继承阎王的暗金色发光和阴间感知能力，性格安静神秘，能看到阴间，可以和阎王直接沟通。</p></div><div style="display:contents" dir="auto"><hr id="325daf81-14f2-8021-a68f-eda03345b714"/></div><div style="display:contents" dir="auto"><h2 id="325daf81-14f2-8027-af45-c0637475e218" class="">第五章 邪神交尾机制解析</h2></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-8043-a1fb-c02a1c1c063b" class="">5.1 独立生殖系统</h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80bd-8add-f228e8372620" class="">邪神的交尾机制极为特殊。他通过与岚步共生获得了实体接触的能力，但他的生殖系统完全独立于岚步，与岚步的生殖器没有任何关系。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8088-bcad-c63eb61fa112" class="">在交尾过程中，邪神通过自身的触手和独立的生殖器官与李松瑞结合。他的生殖系统包括触手末端的特殊器官、独立的输精管和输卵管结构，能够自主产生并输送生殖细胞。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-801d-8141-fc02d5d20943" class="">这一机制保证了邪神与李松瑞交尾产下的蛋，只携带邪神和李松瑞的基因，不携带任何岚步的遗传信息。因此，暗暗身上没有任何狼的特征，只有邪神的触手和李松瑞的龙鳞。</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-80ce-abdb-efb289e70ef3" class="">5.2 产蛋记录</h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8067-abbd-caa938c9e403" class="">邪神与李松瑞交尾产蛋约十枚，其中一枚孵化成暗暗，其余九枚用于制作邪神蛋糕。邪神蛋糕具有特殊效果——食用后会短暂激发强烈的欲望，持续时间约一小时，常用于需要提升士气或增进感情的特殊场合。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80a9-a6e5-efaf63bdec6c" class="">德拉克也曾与邪神交尾产蛋约五枚，全部用于蛋糕制作。这些蛋制作的蛋糕同样具有邪神效果，但由于德拉克是西方龙，蛋糕风味与李松瑞产出的略有不同。</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-80b4-b175-c5960cf76c7c" class="">5.3 邪神的态度</h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80f0-9192-dfdf64890155" class="">邪神对交尾产蛋持积极态度。他认为这是一种“有趣的体验”，也是“与家人建立联系的方式”。他尤其享受三人一起缠着的时刻——岚步抱着李松瑞，他用触手缠着两人。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80e6-8c13-d3a58f07b1ea" class="">对于产下的蛋，邪神表现出罕见的温柔。他会定期查看蛋房，用触手轻轻抚摸每一枚蛋。当蛋孵化成暗暗后，他更是经常与暗暗“聊天”——虽然他们之间的交流外人无法理解。</p></div><div style="display:contents" dir="auto"><hr id="325daf81-14f2-8074-8dfa-edd292b50461"/></div><div style="display:contents" dir="auto"><h2 id="325daf81-14f2-80ab-b709-e0cbf319935f" class="">第六章 财神与阎王交尾机制</h2></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-8068-b257-e21df7dc3dab" class="">6.1 财神交尾</h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80dc-bb39-d227f83bc14f" class="">财神作为真神·中位存在，与李松瑞交尾产下亮亮。他的交尾方式充满了“财气”——整个过程被金色光芒笼罩，交尾结束后会留下一地金币作为“贺礼”。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8021-ad45-cf8849d92687" class="">财神与李松瑞交尾产蛋约五枚，其中一枚孵化成亮亮，其余四枚用于制作财神蛋糕。财神蛋糕的效果极为实用——食用后二十四小时内，无论做什么事情，财运都会显著提升，具体表现为更容易捡到钱、买彩票更容易中奖、投资更容易获利等。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80ae-ac23-db42a8ff665b" class="">德拉克与财神没有交尾关系。这并非财神拒绝，而是德拉克自己“不好意思”。他解释“财神是财神，我是我，交尾怪怪的”。实际上，德拉克对财神保持着某种敬畏，认为“拜神就是拜神，不能乱来”。</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-80c7-888e-ea1c7a8dc6a9" class="">6.2 阎王交尾</h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80d3-9976-db3ad6eb9ddf" class="">阎王作为真神·高位存在，与李松瑞交尾产下黑金。他的交尾方式充满了“生死之气”——整个过程被暗金色光芒笼罩，交尾结束后会在地面留下生死簿的短暂投影。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-807d-8bd3-ffba4446af02" class="">阎王与李松瑞交尾产蛋约五枚，其中一枚孵化成黑金，其余四枚用于制作阎王蛋糕。阎王蛋糕的效果最为特殊——食用后可以在短时间内看到阴间景象，与逝去的亲人短暂交流，持续时间约十分钟。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80ef-8f21-c51983c52f7e" class="">德拉克与阎王同样没有交尾关系。他的理由更为直接：“阎王太吓人了，我不敢。”</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-8054-adc1-cfbd3b1688cc" class="">6.3 真神们的共同点</h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80fa-8ed0-c3ba846bbcea" class="">财神和阎王虽然神格等级不同，但在与李松瑞的关系上有诸多共同点。他们都因为李松瑞而第一次体验到“真实的亲近”，都产下了自己的孩子，都成了咖啡馆的常客。他们通过亮亮和黑金与这个家庭保持着联系，定期来蹭吃蹭喝，被六只小龙围着叫“爸爸”。</p></div><div style="display:contents" dir="auto"><hr id="325daf81-14f2-8031-ac99-c7d1840c6aad"/></div><div style="display:contents" dir="auto"><h2 id="325daf81-14f2-8015-b823-e8d34e35f8f6" class="">第七章 岚步 —— 高冷男神与撒娇小狗</h2></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-8079-ab6e-c6320fd1321b" class="">7.1 双面性格解析</h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80ae-ba5b-fb885fb8198f" class="">岚步的性格反差是团队中最显著的。他在人前和私下的表现几乎判若两人。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80b0-aab1-c814bcdc66b0" class="">在公开场合，他是高冷男神。话少，表情少，动作少，永远专注地擦着军靴，对旁人爱答不理。客人来闻军靴时，他只是面无表情地伸脚，仿佛这一切与他无关。破晓评价他“在外面装得比我还冷”。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-807a-ab8d-e0ed14e1b288" class="">但在李松瑞面前，他完全变了一个人。他会撒娇，会蹭人，会小声说“抱”，会像小狗一样把脑袋拱到李松瑞怀里。李松瑞说他“在外面是狼，在我面前是狗”。邪神则补充“在我面前也是狼——因为我和他共生”。</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-80b3-aa31-fefc32281980" class="">7.2 人前高冷的表现</h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80fc-b463-f6b13c6e0441" class="">岚步在人前的高冷体现在方方面面。他很少主动与人交谈，别人问话只回最简单的词语。他的表情常年保持平静，几乎看不出情绪波动。他的动作永远从容不迫，擦军靴的动作重复千遍也不显厌倦。陌生人靠近时，他会用冷淡的眼神扫过去，让对方自动退却。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8018-903b-ed7ae20b42c9" class="">这种高冷气质为他赢得了“冷面狼君”的外号，也成为咖啡馆吸引客人的因素之一——很多人专程来看“那个高冷的狼哥”。</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-8039-8e77-dd220647aa6e" class="">7.3 李松瑞面前的小狗</h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80ff-9430-f81928bce7bb" class="">在李松瑞面前，岚步的所有高冷都会瞬间瓦解。他会主动靠近，用头蹭李松瑞的肩膀或胸口。他会小声嘟囔“想你了”“抱一下”，声音软得不像话。被李松瑞摸头时，他会眯起眼睛，发出满足的轻哼。被李松瑞骂“笨狼”时，他会傻笑，尾巴摇个不停。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8084-9e4a-de547988fcb7" class="">最经典的场景是：李松瑞躺在躺椅上，岚步趴在他身上，脸埋在颈窝，尾巴缠着对方的腿，整个人像一只大型犬。这时如果有客人进来，岚步会瞬间坐直，恢复高冷表情，等客人走后又软下去。李松瑞对此的评价是“操，你变脸比翻书还快”。</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-80b4-95c5-d8d9fa110fbc" class="">7.4 邪神视角的岚步</h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8070-9058-e33daadc579d" class="">邪神与岚步共生，对他性格的了解最为深入。据邪神描述，岚步的内心住着一只“极度渴望被爱的小狼”。他的高冷是自我保护机制，他的撒娇是真实情感流露。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-803e-8e26-ef56e5c77697" class="">邪神说：“他在外面——高冷——是因为——怕受伤——在李松瑞面前——不用怕——所以——小狗——出来——了。”</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-8086-9d9d-e51b8c683fcb" class="">7.5 双面性格的形成原因</h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8083-95e5-e096eda40034" class="">岚步的双面性格可以追溯到实验室时期。在实验室里，他和李松瑞相依为命，只有彼此可以信任。被实验折磨时，他学会了在陌生人面前隐藏情绪，高冷成为保护色。但在李松瑞面前，他不需要任何伪装。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80c6-93a9-deb0ed9b2eeb" class="">失忆时期的李松瑞不认识他，他只能默默守护，高冷成为无奈的选择。当李松瑞恢复记忆，他终于可以卸下所有伪装，做回那个会撒娇的小狗。</p></div><div style="display:contents" dir="auto"><hr id="325daf81-14f2-80a5-ac66-c4293cffa867"/></div><div style="display:contents" dir="auto"><h2 id="325daf81-14f2-801d-9d5e-df6904f0b779" class="">第八章 角色关系综合分析</h2></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-802a-86d8-db7df5daecf4" class="">8.1 交尾关系网络</h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8051-a183-eb49bebf0a82" class="">李松瑞作为产蛋核心，与所有成员（包括真神）都有交尾关系。他的交尾伴侣包括岚步、破晓、苍蓝、德拉克、邪神、财神、阎王，共七位。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80f7-b9b1-f5f4d591936b" class="">德拉克作为产蛋副核，交尾伴侣包括李松瑞、岚步、破晓、苍蓝、邪神，共五位。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80ca-acd7-c675d40cb9c3" class="">岚步、破晓、苍蓝作为非产蛋方，交尾伴侣均包括李松瑞和德拉克。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80cb-9e5f-ee11f8a79077" class="">邪神、财神、阎王作为真神级存在，交尾伴侣均为李松瑞。</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-80c2-8f41-f16b98decdbc" class="">8.2 亲子关系网络</h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8005-9d9a-ce9d26c7d23b" class="">六只小龙的亲子关系如下：</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80e6-879b-d3de3b92fab7" class="">蓝蓝的父亲是苍蓝和德拉克。<br/>灰灰的父亲是岚步和德拉克。<br/>金金的父亲是破晓和德拉克。<br/>暗暗的父亲是邪神和李松瑞。<br/>亮亮的父亲是财神和李松瑞。<br/>黑金的父亲是阎王和李松瑞。</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-809e-8496-d8373a38bdbc" class="">8.3 角色定位互补</h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80f8-a883-eb0dccf52470" class="">李松瑞和德拉克作为“粗口猛1”，在性格上高度相似，成为彼此最理解对方的人。岚步的高冷与撒娇形成鲜明反差，与李松瑞形成“猛1×小狗”的互补关系。破晓的沉稳与李松瑞的跳脱形成互补。苍蓝的呆傻与所有人形成“被保护者×保护者”的关系。</p></div><div style="display:contents" dir="auto"><hr id="325daf81-14f2-80df-8990-cc934ff60a0f"/></div><div style="display:contents" dir="auto"><h2 id="325daf81-14f2-8057-b809-cd28f2c27f0c" class="">第九章 结论</h2></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8082-aa6b-ef9ba5127e17" class="">通过本研究的专项分析，可以得出以下结论：</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80cd-99fb-e213b70f612d" class="">第一，李松瑞和德拉克作为唯二具备产蛋能力的个体，在团队中承担着繁衍后代的特殊角色。他们可以在“猛1”和“产蛋0”之间灵活切换，这种角色灵活性是龙族特有的生理特性。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80dd-983d-c01943fc1555" class="">第二，六只小龙的血统来源差异显著，蓝蓝、灰灰、金金继承德拉克的血脉，暗暗、亮亮、黑金继承李松瑞与三位真神的血脉。这种差异决定了他们各自的能力和性格特征。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80f4-9236-ea6dc0ed286c" class="">第三，邪神的交尾机制完全独立于岚步，通过自身触手和生殖器官实现，因此暗暗身上没有任何狼的特征。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-804e-949e-fba32bf8502e" class="">第四，岚步的双面性格是其核心特质，人前高冷男神、李松瑞面前撒娇小狗的反差，源于实验室时期的创伤经历和对李松瑞的极度信任。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8089-a67b-da02174675de" class="">第五，德拉克与真神（财神、阎王）没有交尾关系，这与他“敬畏真神”的心理有关，也使得他只有与李松瑞交尾产出的蛋用于孵化。</p></div><div style="display:contents" dir="auto"><hr id="325daf81-14f2-80b1-8036-cbfb707f3861"/></div><div style="display:contents" dir="auto"><h2 id="325daf81-14f2-80f0-b5db-c1cf6233961b" class="">附录：交尾与产蛋记录摘要</h2></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8097-ba5a-d0e91ef4e3ed" class="">李松瑞产蛋总计超过一百一十枚，其中六枚孵化（灰灰、金金、蓝蓝、暗暗、亮亮、黑金），其余用于蛋糕制作。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-806b-bfd6-f27ea4b5ec5e" class="">德拉克产蛋总计约五十枚，其中三枚孵化（蓝蓝、灰灰、金金），其余用于蛋糕制作。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8060-92dd-fdc0f8ecbbfa" class="">邪神交尾产蛋约十五枚（与李松瑞十枚，与德拉克五枚），其中一枚孵化（暗暗）。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80e8-af94-cdd521491fa9" class="">财神交尾产蛋五枚，一枚孵化（亮亮）。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-803b-8145-ee306ae05f10" class="">阎王交尾产蛋五枚，一枚孵化（黑金）。</p></div><div style="display:contents" dir="auto"><hr id="325daf81-14f2-80ba-b114-d125e4828342"/></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80ba-a808-ed30b76ad77a" class=""><strong>【研究报告完】</strong></p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8033-b172-c8b59c46607b" class=""><em>研究主持：德拉克（一边数钱一边记录，偶尔脸红）</em></p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80d3-86bf-e681e0fe041e" class=""><em>研究顾问：老板（喵，表示“你们这些事我都知道”）</em></p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80c1-be20-daa789dc52b8" class=""><em>数据验证：星辰（持续发光，记录一切）</em></p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80b3-8cfb-d75027c06028" class=""><em>特别鸣谢：六只小龙（提供血统样本）</em></p></div><div style="display:contents" dir="auto"><h1 id="325daf81-14f2-80ae-8b49-dd4198f97758" class=""><strong>《烬契四重奏》</strong></h1></div><div style="display:contents" dir="auto"><h2 id="325daf81-14f2-80fd-a748-c68db415f37b" class=""><strong>特殊道具档案【容易想歪版】</strong></h2></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-8052-a67c-e407dbf78d85" class=""><strong>前言</strong></h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80b5-b95c-cde93d9fcfbd" class="">本档案收录了【破罐咖啡馆】成员们在各种奇遇中获得的特殊道具。这些道具功能各异，但有一个共同特点——它们的功能描述听起来很正常，但用起来总会往奇怪的方向跑偏。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8069-9938-ff5f010c3f5c" class="">德拉克曾试图对这些道具进行商业化开发，但大部分提案被李松瑞以“操，这玩意用不好会出事”为由驳回。不过驳回前，德拉克已经详细记录了所有道具的功能和使用心得。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80d7-9380-d4ff03709ac0" class="">本档案仅供内部参考，请勿外传。</p></div><div style="display:contents" dir="auto"><hr id="325daf81-14f2-8012-8611-fbf1aedb2966"/></div><div style="display:contents" dir="auto"><h2 id="325daf81-14f2-805f-a19b-c0a62de7b6bb" class=""><strong>第一章 时空定格相机</strong></h2></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-806d-902e-f67d9889a7d0" class=""><strong>基础信息</strong></h3></div><div style="display:contents" dir="ltr"><table id="325daf81-14f2-8062-b497-e3f89e93075f" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-8012-a6d2-fa65ec728fe2"><th id=";jaf" class="simple-table-header-color simple-table-header"><strong>项目</strong></th><th id="|cej" class="simple-table-header-color simple-table-header"><strong>内容</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-8075-b444-d2dd952afc86"><td id=";jaf" class=""><strong>道具名称</strong></td><td id="|cej" class="">时空定格相机</td></tr></div><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-808f-8148-f69196feac7c"><td id=";jaf" class=""><strong>发现者</strong></td><td id="|cej" class="">李松瑞</td></tr></div><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-80a4-86f3-d6ac7503a495"><td id=";jaf" class=""><strong>发现地点</strong></td><td id="|cej" class="">咖啡馆角落</td></tr></div><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-800c-adc4-ff8b2e250966"><td id=";jaf" class=""><strong>外观描述</strong></td><td id="|cej" class="">老旧的皮腔相机，表面有奇怪的发光符号</td></tr></div><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-809d-91ad-ff111a073f34"><td id=";jaf" class=""><strong>能量来源</strong></td><td id="|cej" class="">电池/金币（可用金币充电）</td></tr></div><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-8013-b37b-d0944e30b703"><td id=";jaf" class=""><strong>当前持有人</strong></td><td id="|cej" class="">李松瑞（但德拉克经常借去玩）</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-80f0-ae8e-c2856432c3a7" class=""><strong>功能描述</strong></h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80e8-8132-c105eacf248a" class="">该相机能够创造一个当前时间的定格时空。使用时，现实世界的人物会在镜像时空里留下一个定格的投影，而使用者可以进入镜像时空自由活动。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80f4-8a75-c53af709f57a" class="">定格时空的存在时间与相机电池电量相关，电池耗尽后会自动返回现实世界。也可以用金币为相机充电，一枚金币可提供约十分钟的定格时间。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-801e-9bf8-e48c2c9066f9" class="">在定格时空里，所有现实世界的物体都可以被触碰和移动，但定格的投影会保持原样，不会对使用者的行为做出任何反应。</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-809c-a51a-db8bf230111c" class=""><strong>正常用途</strong></h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8077-8eaa-f252969a2601" class="">理论上，这个相机有很多正经用途。比如在紧急情况下定格时间救人，在危险环境中安全探索，或者在忙碌时“暂停”时间多休息一会儿。破晓曾提议用它来“定格时间多擦一会儿杯子”，被李松瑞吐槽“操，你擦杯子上瘾了吧”。</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-806e-9a2f-f09a4141bfd1" class=""><strong>容易想歪的用途</strong></h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8085-afa9-f5c29ac646c7" class="">然而在实际使用中，这个相机的用途总是往奇怪的方向跑偏。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8047-9371-e1e4fd50fb5d" class="">李松瑞第一次使用，就和德拉克全裸逛遍了整个城市的街道，在几十个定格的投影面前大摇大摆地走。他说“反正他们不知道，就当是行为艺术”。岚步事后问起，他理直气壮地回答：“操，难得有机会全裸逛街，当然要试试。”</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80ba-bcca-ff0873162419" class="">第二次使用更离谱。李松瑞和德拉克在市中心广场的几十个定格投影面前交尾产蛋，产出了足够第二天做蛋糕的龙蛋。德拉克事后解释“那里风景好，光线好，产出来的蛋质量也高”。破晓听到后沉默了三秒，然后继续擦杯子。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80ef-b9ca-e086d93b3f69" class="">第三次使用，李松瑞试图拉岚步一起进定格时空“体验一下”。岚步进去后，被李松瑞拉着在全裸状态下逛了一整条商业街。出来后岚步的耳朵红了三天，但私下告诉邪神“其实挺刺激的”。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80bf-b0e2-ea1d5ce774e9" class="">第四次使用，破晓发现了这个相机的存在。他面无表情地看着李松瑞和德拉克，然后说：“下次用的时候叫我。”李松瑞问他干嘛，他回答：“去看看那个24小时营业的杯子店。”</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-809f-accf-d6a571a64265" class="">第五次使用，苍蓝带着星辰进去了。他在定格时空里给星辰拍了一百张照片，各种角度各种光线。出来后星辰发光发了一整天，像是在说“开心”。</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-80e2-8f28-d31e7b1350b9" class=""><strong>德拉克的商业提案</strong></h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8056-a38e-fbe272324447" class="">德拉克曾针对这个相机提出过一系列商业计划：</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80b4-80f5-c7a281da01ce" class="">“定格写真服务”——在定格时空里给客人拍照，背景随便选，姿势随便摆，反正没人看见。定价五百一小时，包修图。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80ba-b161-d1b7c58eb503" class="">“定格购物体验”——带客人进定格时空，想拿什么拿什么，想试什么试什么，出来再决定买不买。定价二百一次，不含商品费用。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8001-a094-f4895765a7b1" class="">“定格约会套餐”——在定格时空里安排浪漫约会，没有旁人打扰，想干嘛干嘛。定价一千一次，含烛光晚餐（投影版）。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-800d-8561-f3463a47c325" class="">“定格写真服务”被李松瑞以“操，你让客人进去干嘛”为由驳回。“定格购物体验”被破晓以“这不就是偷吗”为由驳回。“定格约会套餐”被岚步以“约会为什么要进定格时空”为由驳回。</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-80aa-bc10-ef9bb2669fad" class=""><strong>使用记录</strong></h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8040-93bd-eca777888ab8" class="">据德拉克的不完全统计，该相机至今已被使用三十七次。其中二十三次用于全裸逛街，八次用于产蛋，三次用于偷吃冰箱里的蛋糕（李松瑞辩解“定格时空里吃不算偷”），两次用于恶作剧，一次用于正经用途（苍蓝给星辰拍照）。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8034-9e6d-c5e108d3a500" class="">相机充电消耗金币累计四十七枚，均由德拉克提供。他每次提供金币时都会说“这是投资”，然后追问李松瑞“什么时候能用相机去银行金库看看”。</p></div><div style="display:contents" dir="auto"><hr id="325daf81-14f2-80f1-b1e8-d3f627ad5534"/></div><div style="display:contents" dir="auto"><h2 id="325daf81-14f2-80f2-95a4-d6e590326bd7" class=""><strong>第二章 空间分离手镯</strong></h2></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-80ba-a718-f7cfb8dd2eb7" class=""><strong>基础信息</strong></h3></div><div style="display:contents" dir="ltr"><table id="325daf81-14f2-8067-ba24-e63a5b45f90d" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-8013-809f-e9b46305ba60"><th id="Jb;v" class="simple-table-header-color simple-table-header"><strong>项目</strong></th><th id="}HKy" class="simple-table-header-color simple-table-header"><strong>内容</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-809a-ac92-c348eb0e9cbc"><td id="Jb;v" class=""><strong>道具名称</strong></td><td id="}HKy" class="">空间分离手镯</td></tr></div><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-80a9-9f41-eb813194e6c2"><td id="Jb;v" class=""><strong>发现者</strong></td><td id="}HKy" class="">李松瑞</td></tr></div><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-80b9-8c59-fa05ad52c685"><td id="Jb;v" class=""><strong>发现地点</strong></td><td id="}HKy" class="">咖啡馆角落（和相机一起）</td></tr></div><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-80b6-aa40-f64a5e34653e"><td id="Jb;v" class=""><strong>外观描述</strong></td><td id="}HKy" class="">银色手镯，有奇怪的纹路，可以从中间分开</td></tr></div><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-8026-b528-cc0832450908"><td id="Jb;v" class=""><strong>功能</strong></td><td id="}HKy" class="">可以将物体从空间上分离，中间由空气连接</td></tr></div><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-8062-93ac-ed90034440f0"><td id="Jb;v" class=""><strong>数量</strong></td><td id="}HKy" class="">一箱（破晓后来找到的）</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-8001-ad0d-e679063ab837" class=""><strong>功能描述</strong></h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8023-af9f-ca9c6dca9c5f" class="">这个手镯戴在某个部位后，可以从中间分开。被分开的部分会在空间上分离，但中间由“空气”连接，仍然可以控制。简单来说，就是可以把身体的一部分“拿下来”，但还能像原来一样控制它。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8007-876c-c1da16ec4cd1" class="">手镯分开后，被分离的部分和主体之间的空间是空的，只有空气，但两者仍然存在某种联系，可以自由操控。只要手镯合上，分离的部分就会自动回到原位。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80d0-b17b-c75388e6acb7" class="">破晓后来在角落找到了一整箱同样的手镯，数量约五十个。他的原话是“我就知道不止一个”。</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-80ab-900f-e46cffaa52a5" class=""><strong>正常用途</strong></h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80e6-8cf2-f19de416b61b" class="">正经用途包括：在不方便移动的情况下分离肢体进行操作、在狭小空间里让身体部分独立探索、或者在医疗场景下方便检查。破晓曾提议用它来“擦杯子够不到的地方”，被李松瑞以“操，你直接站起来不就行了”为由驳回。</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-80a9-91c7-fa78585e613e" class=""><strong>容易想歪的用途</strong></h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8050-aae9-dd5ffd2ba6b8" class="">这个手镯的用途从一开始就往奇怪的方向发展。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80fd-9e67-d6de772a579e" class="">李松瑞第一次使用，是把岚步的某个部位和尾巴分离下来，放在展示架上当艺术品。岚步第二天早上醒来发现自己少了东西，破防了整整三天。他的原话是“我我我那个没了平了平的！！！”</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8005-bcf7-dbbd640529f1" class="">破晓发现是李松瑞和岚步干的之后，默默找到了一整箱手镯。他趁着李松瑞、岚步和德拉克睡觉的时候，把他们的所有部位和尾巴都分离下来，整整齐齐摆在展示架上。旁边还放了几枚德拉克的金币当装饰。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-808d-9e79-cda3c4fe62e6" class="">那一个月里，三个人走路都是一拐一拐的，没有尾巴保持平衡。岚步想闻军靴差点摔倒，德拉克想飞直接撞墙，李松禄想摸尾巴发现是空的。破晓每天路过展示架都会停下来欣赏，说“嗯，整齐，好看，干净，舒服”。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8022-8a34-ec436d9dc7ca" class="">一个月后，破晓把手镯合上，三人的部位归位。岚步晃着尾巴说“终于有了感觉真好”，德拉克飞起来说“稳了终于稳了”，李松禄说“操，可以晃了可以暴露了”。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80c3-8261-d7f2c3832d56" class="">后来他们又玩起了“交换游戏”。把手镯拆开后，互相交换部位和尾巴，装在自己身上。那一个月里，岚步拖着德拉克的深红色尾巴，德拉克拖着李松禄的藏青色尾巴，李松禄拖着苍蓝的灰蓝色尾巴，整个咖啡馆的画风都变了。客人问起来，他们统一口径“染的”。</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-8011-b5de-c73f1ccfd2b4" class=""><strong>德拉克的商业提案</strong></h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80f6-8db8-c26b874a1792" class="">德拉克针对这箱手镯提出过一系列商业计划：</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80a5-9024-dd90593daaac" class="">“身体分离体验馆”——让客人体验“把自己的一部分拿下来”的感觉。定价一百一次，可以选择部位。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8025-a0a9-e6c169b0f40a" class="">“尾巴租赁服务”——把自己不用的尾巴租给想要体验的客人。定价五十一天，押金五百。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8038-b35a-d7d5bc505b63" class="">“情侣互换套餐”——让情侣交换身体的某个部位，增进感情。定价五百一次，包教学。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8082-9b5d-f856f2f035e0" class="">“身体分离体验馆”被李松禄以“操，你让客人体验什么”为由驳回。“尾巴租赁服务”被岚步以“我的尾巴不租”为由驳回。“情侣互换套餐”被破晓以“你们已经玩够了吧”为由驳回。</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-8085-8ce1-dbdbd4d7cc21" class=""><strong>使用记录</strong></h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80e8-b7b4-ee8511bdf969" class="">手镯使用次数已无法统计，因为自从破晓找到一箱后，大家就开始乱玩。据德拉克的不完全统计，至少有过以下经典场景：</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80ea-9a80-e895fd17dd9c" class="">岚步的尾巴被放在展示架上一个月。德拉克的尾巴被岚步装了三天。李松禄的两根被苍蓝装了一周。破晓的某个部位在展示架上待了最久，因为是他自己放的。五个人互换部位和尾巴玩了一个月。金金曾经试图“擦”展示架上的东西，被破晓制止。亮亮曾经对着展示架发光，说“这个招财吗”。黑金曾经对着展示架发光，说“阎王说他没见过这种展览”。</p></div><div style="display:contents" dir="auto"><hr id="325daf81-14f2-802a-88bd-cbe42caa470c"/></div><div style="display:contents" dir="auto"><h2 id="325daf81-14f2-80b9-b320-e52906fc0c72" class=""><strong>第三章 复制手环</strong></h2></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-8018-9c63-fb131cf0b52f" class=""><strong>基础信息</strong></h3></div><div style="display:contents" dir="ltr"><table id="325daf81-14f2-802b-a525-feedb205cd11" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-805d-b368-f454e3310284"><th id="K:GW" class="simple-table-header-color simple-table-header"><strong>项目</strong></th><th id="u&lt;[R" class="simple-table-header-color simple-table-header"><strong>内容</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-8022-a845-e81dda37c281"><td id="K:GW" class=""><strong>道具名称</strong></td><td id="u&lt;[R" class="">复制手环</td></tr></div><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-80a8-b8bf-fca6a759bcdf"><td id="K:GW" class=""><strong>发现者</strong></td><td id="u&lt;[R" class="">德拉克</td></tr></div><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-80da-a386-eef6103d961d"><td id="K:GW" class=""><strong>发现地点</strong></td><td id="u&lt;[R" class="">某个域限空间的商店里</td></tr></div><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-8076-937e-c314a8e7eb5d"><td id="K:GW" class=""><strong>外观描述</strong></td><td id="u&lt;[R" class="">金色手环，上面刻着“Copy”字样</td></tr></div><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-808d-8097-dbda5d1b6ffd"><td id="K:GW" class=""><strong>功能</strong></td><td id="u&lt;[R" class="">可以复制任何物体，复制品存在一小时</td></tr></div><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-8053-a38d-fa1847e836dd"><td id="K:GW" class=""><strong>数量</strong></td><td id="u&lt;[R" class="">一对</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-801b-8350-fbc86a5af53b" class=""><strong>功能描述</strong></h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8096-8998-edee96bf1908" class="">这个手环可以复制任何被它触碰的物体。复制品与被复制品完全相同，但只会存在一小时，一小时后自动消失。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80f5-9d9c-ecd30c0da296" class="">手环必须成对使用——一个用来复制，另一个用来确认复制对象。复制时，将复制手环触碰目标物体，另一个手环会显示目标物体的全息影像，确认后复制品就会出现。</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-8054-83fc-cfeb7d193749" class=""><strong>正常用途</strong></h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-803c-88ae-f9de0eabfd8f" class="">正经用途包括：复制重要文件备份、复制工具临时使用、复制食物应急等。德拉克发现它的第一时间就想到“复制金币一小时，然后用真金币换走假金币”，被李松禄以“操，你这是什么诈骗思路”为由制止。</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-80c9-8a95-eda80ffde031" class=""><strong>容易想歪的用途</strong></h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8002-8ff3-f190b582bb9c" class="">这个手环的用途从一开始就跑偏。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80f1-99fd-e1ff3bbd8556" class="">德拉克第一次使用，复制了自己的金币。他看着两堆一模一样的金币，激动得翅膀直抖，然后开始考虑怎么用假金币换真金币。李松禄在旁边说“操，你别想了，假的会消失的”。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-807b-a868-e5410960aabc" class="">岚步看到后，默默拿出自己最爱的老北京布鞋，复制了一双。然后他拿着复制品闻了整整一小时，说“这个味道也复制了，真好”。邪神在旁边评价“他——真是——专注”。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-806a-a0e8-f5055da449e0" class="">破晓复制了自己的杯子，然后把两个杯子一起擦了一小时。他说“双倍的工作，双倍的快乐”。李松禄说“操，你有病”。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-803d-857f-c5617a5533eb" class="">苍蓝复制了星辰。两个星辰一起发光，照亮了整个咖啡馆。星辰自己看起来很开心，一直在两个自己之间飘来飘去。苍蓝说“星辰，你有伴了”。一小时后复制品消失，星辰发了一整晚的暗光，像是在“难过”。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8071-b73e-d779cf90ab74" class="">最离谱的是李松禄。他偷偷复制了岚步的某个部位，然后把复制品藏了起来。岚步发现后，追着他跑了三条街。破晓在旁边擦着杯子说“活该”。</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-8009-bb98-fcb1c3adb3f3" class=""><strong>德拉克的商业提案</strong></h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-805e-9819-d09e1db15dbc" class="">德拉克针对这个手环提出过一系列商业计划：</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80e2-acef-c52c6bd3c598" class="">“一小时体验店”——让客人复制想体验的东西，用一小时再还回去。定价根据物品价值浮动。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-800a-8f36-daefcb9af04a" class="">“艺术品复制租赁”——复制名画让客人带回家挂一小时，体验“拥有艺术的感觉”。定价五百一次。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80fa-8605-f04b0050dcdd" class="">“美食复制摊”——复制各种美食，定价比正品便宜，反正一小时后消失，客人也吃完了。定价二十一份。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8072-8e22-c5230b8ea96d" class="">“一小时体验店”被岚步以“你确定不会有人复制不该复制的东西”为由驳回。“艺术品复制租赁”被破晓以“这不就是造假吗”为由驳回。“美食复制摊”被李松禄以“操，这会影响我KFC的生意”为由驳回。</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-802e-a0fc-cdeac3d3b438" class=""><strong>使用记录</strong></h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8049-aa1b-fff28dfe282d" class="">复制手环共使用四十七次。其中二十三次用于复制金币（德拉克的执念），十二次用于复制鞋子（岚步的爱好），五次用于复制杯子（破晓的强迫症），三次用于复制星辰（苍蓝的爱），两次用于复制食物（李松禄饿了但不想出门），一次用于复制岚步的某个部位（李松禄的恶作剧），一次用于复制李松禄的某个部位（岚步的报复）。</p></div><div style="display:contents" dir="auto"><hr id="325daf81-14f2-80fc-ae92-f84397a975b1"/></div><div style="display:contents" dir="auto"><h2 id="325daf81-14f2-8082-b7a5-e7e83bb97b92" class=""><strong>第四章 隐私保护伞</strong></h2></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-8086-a3a5-c77e0185edec" class=""><strong>基础信息</strong></h3></div><div style="display:contents" dir="ltr"><table id="325daf81-14f2-80e0-b18c-d40adeda6358" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-801f-bd0b-fac20a80ea99"><th id="yryV" class="simple-table-header-color simple-table-header"><strong>项目</strong></th><th id="{TE^" class="simple-table-header-color simple-table-header"><strong>内容</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-8039-b1d7-f9ea1966d0fa"><td id="yryV" class=""><strong>道具名称</strong></td><td id="{TE^" class="">隐私保护伞</td></tr></div><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-8060-bb9c-c30deabf172e"><td id="yryV" class=""><strong>发现者</strong></td><td id="{TE^" class="">苍蓝</td></tr></div><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-8098-9329-d477088c6bc2"><td id="yryV" class=""><strong>发现地点</strong></td><td id="{TE^" class="">某个规则怪谈副本的奖励</td></tr></div><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-80d3-ad0c-fb98960573ab"><td id="yryV" class=""><strong>外观描述</strong></td><td id="{TE^" class="">普通的黑色雨伞，撑开后伞面有特殊符文</td></tr></div><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-80d1-b043-d2a6e3b845b2"><td id="yryV" class=""><strong>功能</strong></td><td id="{TE^" class="">撑开后形成一个半径两米的隐私空间，外界无法看见或听见里面</td></tr></div><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-80c0-b1a4-de9fdc91c72c"><td id="yryV" class=""><strong>能量来源</strong></td><td id="{TE^" class="">无需能量，永久有效</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-80cd-87d3-d4e37cef81b5" class=""><strong>功能描述</strong></h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8094-bc22-cdd5adb60813" class="">这把伞撑开后，会形成一个半径两米的圆形隐私空间。空间内的一切都无法被外界看见或听见，任何形式的窥探都会被屏蔽。空间内的人可以看到外面，但外面的人只能看到一把普通的黑伞。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8046-a916-da5c814ca77d" class="">这个功能听起来非常正经——保护隐私、安全对话、紧急避险等等。但实际用途嘛……</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-80d5-9dcd-fe3bb59e63c8" class=""><strong>正常用途</strong></h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-804a-a9a7-e7dd358788cb" class="">正经用途包括：在公共场所进行私密谈话、在危险环境中隐蔽自己、或者临时换衣服。破晓曾提议用它来“在人多的地方安静地擦杯子”，被李松禄以“操，你擦杯子还要隐私？”为由驳回。</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-80e4-be37-ce1fa38a79e4" class=""><strong>容易想歪的用途</strong></h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80ea-ae24-d5839c482a79" class="">这个伞的用途从一开始就跑偏。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-802f-90e3-ff31d41078a4" class="">苍蓝第一次拿到伞，就撑开躲在里面给星辰“单独拍照”。他说“星辰，这里只有我们，你想怎么发光就怎么发光”。星辰发了一整天的光，开心极了。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-806b-817f-dc7f530ca9a3" class="">岚步发现这把伞后，撑开在里面闻了一整天的老北京布鞋。他出来时说“没人打扰，真好”。李松禄问他闻了多少双，他说“三十双，每双都仔细品了”。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-809d-8b81-eeb96f1b78f9" class="">破晓撑着伞在里面擦杯子，擦了三小时才出来。他说“没有人在旁边问东问西，效率提高了百分之三百”。李松禄说“操，你擦杯子还要开隐私模式”。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8069-a6b3-ced2a18c0dce" class="">德拉克撑着伞在里面数钱，数完发现外面过了一小时。他说“时间过得真快，我得再数一遍”。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8067-85ab-ce0f03d48bed" class="">最离谱的是李松禄。他撑着伞和岚步在里面“独处”了两小时。出来时两人都红光满面，岚步的尾巴还在晃。破晓在旁边擦着杯子说“我什么都没看见”。苍蓝问“你们在里面干嘛”，李松禄回答“操，讨论哲学”。</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-8091-8a44-eabed4f8e8b7" class=""><strong>德拉克的商业提案</strong></h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8086-9e3b-f91e5783e055" class="">德拉克针对这把伞提出过一系列商业计划：</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80cd-aa07-e4c4d2ab0eab" class="">“私密约会包厢”——在咖啡馆角落撑开伞，让情侣享受私密时光。定价一百一小时，送两杯咖啡。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-806e-8f94-d6b693756d64" class="">“专注工作空间”——让需要安静的人躲在伞里工作。定价五十半小时，送一杯咖啡。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80bb-9c15-e890b72ba034" class="">“VIP闻鞋体验”——让岚步在伞里提供专属闻鞋服务。定价二百半小时，含岚步品鉴讲解。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80c6-b08d-f8ad101a4d81" class="">“私密约会包厢”被岚步以“你觉得有人会在咖啡馆里撑伞约会吗”为由驳回。“专注工作空间”被破晓以“我擦杯子不需要安静”为由驳回。“VIP闻鞋体验”被李松禄以“操，这服务本来就够怪了，还要加隐私模式？”为由驳回。</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-80c1-ba79-ef4cabc63910" class=""><strong>使用记录</strong></h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80b8-ac12-d61ac2aba679" class="">隐私保护伞共使用八十九次。其中三十次用于岚步闻鞋，二十次用于德拉克数钱，十五次用于破晓擦杯子，十次用于苍蓝和星辰独处，八次用于李松禄和岚步“讨论哲学”，四次用于六只小龙的“秘密会议”，两次用于老板睡觉（它说“这把伞舒服”）。</p></div><div style="display:contents" dir="auto"><hr id="325daf81-14f2-80a4-9e91-ed5641a1a369"/></div><div style="display:contents" dir="auto"><h2 id="325daf81-14f2-80c9-9c1d-fa460515cda0" class=""><strong>第五章 时间暂停怀表</strong></h2></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-80d9-9045-f16e2de831ea" class=""><strong>基础信息</strong></h3></div><div style="display:contents" dir="ltr"><table id="325daf81-14f2-804b-8df4-e92a6319fd2d" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-80b5-89d0-d1c0cdb550c9"><th id="{fpJ" class="simple-table-header-color simple-table-header"><strong>项目</strong></th><th id="yTDL" class="simple-table-header-color simple-table-header"><strong>内容</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-80b3-bd30-d912c877b6f9"><td id="{fpJ" class=""><strong>道具名称</strong></td><td id="yTDL" class="">时间暂停怀表</td></tr></div><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-8005-8094-db83dc2b963c"><td id="{fpJ" class=""><strong>发现者</strong></td><td id="yTDL" class="">岚步</td></tr></div><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-801b-b7ee-d286d8910c2c"><td id="{fpJ" class=""><strong>发现地点</strong></td><td id="yTDL" class="">某个时空乱流的夹缝中</td></tr></div><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-80d7-bc1c-c4caaeef6224"><td id="{fpJ" class=""><strong>外观描述</strong></td><td id="yTDL" class="">金色怀表，表盘上只有一根指针</td></tr></div><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-80c1-b675-c4b0e7563049"><td id="{fpJ" class=""><strong>功能</strong></td><td id="yTDL" class="">按下顶端按钮，可以暂停时间三分钟</td></tr></div><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-8036-94ce-d20ce72b01fa"><td id="{fpJ" class=""><strong>能量来源</strong></td><td id="yTDL" class="">每天自动充能一次</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-8052-9d13-f8c2673d905c" class=""><strong>功能描述</strong></h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80b3-9140-f2f4a55810ff" class="">这个怀表可以暂停时间三分钟。在暂停的时间内，使用者可以自由活动，其他一切都会静止。三分钟后时间恢复流动，没有任何人会发现刚才发生了什么。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80d3-867f-c3dcb4071d2c" class="">这个功能听起来简直万能——逃避危险、完成紧急任务、甚至多睡三分钟。但实际用途嘛……</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-809b-bbc8-c88546b3866f" class=""><strong>正常用途</strong></h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-801f-8bb7-f1f26ce54842" class="">正经用途包括：在紧急情况下争取时间、在考试前多看几眼书本、或者在堵车时直接走过路口。德拉克第一次拿到时想的是“暂停时间去银行金库转转”，被李松禄以“操，你这是犯罪”为由制止。</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-809d-af8f-f85a178b7651" class=""><strong>容易想歪的用途</strong></h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-801c-ac11-cd44d5b4477d" class="">这个怀表的用途从一开始就跑偏。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80ad-8d94-cd8209e4973d" class="">岚步第一次使用，暂停时间跑去闻了全城所有老北京布鞋店的鞋子。三分钟后他回来，脸上是满足的表情。李松禄问他去哪儿了，他说“去进货了”，然后从身后拿出十双老北京布鞋。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-808d-b29f-c2d9ff7487ba" class="">德拉克第二次使用，暂停时间把德拉克的金币全数了一遍——不对，他本来就是德拉克，他把自己的金币数了两遍。三分钟后他回来说“时间太短了，才数了五千枚”。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80da-a5c3-eda434e4b38d" class="">破晓第三次使用，暂停时间跑去擦了全城所有杯子店的样品杯。三分钟后他回来，脸上是满足的表情。李松禄说“操，你擦别人杯子干嘛”，他说“让它们保持干净”。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-807c-9f3e-d915f431abf0" class="">苍蓝第四次使用，暂停时间带着星辰去海边看了一分钟海——时间只够看一分钟，剩下两分钟跑回来。星辰发光发了两天，像是在说“值得”。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8089-84ed-c5c6b0404472" class="">李松禄第五次使用，暂停时间跑去KFC拿了三个全家桶，然后坐下来慢慢吃了两分钟，最后一分钟跑回来。三分钟后他若无其事地躺着，岚步问“你刚才是不是动了一下”，他说“没有，你幻觉”。</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-8010-b2cc-d856b586b57e" class=""><strong>德拉克的商业提案</strong></h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8080-ac5a-fe6623ba68ed" class="">德拉克针对这个怀表提出过一系列商业计划：</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-807b-95cc-fc0712ca6314" class="">“时间暂停体验馆”——让客人体验三分钟“世界静止只有我在动”的感觉。定价五百一次，限量预约。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8029-8362-e035b3180d21" class="">“时间暂停购物”——带客人进商店，想拿什么拿什么，反正没人看见。定价二百一次，不含商品费用。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-804a-9634-e8a10f2857d1" class="">“时间暂停约会”——三分钟私密时光，想干嘛干嘛。定价一千一次，包事后回忆。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80f8-a3ec-c8ceeb22365d" class="">“时间暂停体验馆”被李松禄以“操，你确定客人进去后不会乱来”为由驳回。“时间暂停购物”被破晓以“这不就是偷吗”为由驳回。“时间暂停约会”被岚步以“三分钟够干嘛”为由驳回。</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-805f-a186-fd637308c117" class=""><strong>使用记录</strong></h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80b6-b944-c32760ad5971" class="">时间暂停怀表共使用七十六次。其中二十三次用于岚步闻鞋，十五次用于李松禄偷吃KFC，十二次用于德拉克数钱，十次用于破晓擦杯子，八次用于苍蓝带星辰看风景，五次用于六只小龙的“时间暂停游戏”（它们轮流按按钮），三次用于老板睡觉（它说“多睡三分钟真好”）。</p></div><div style="display:contents" dir="auto"><hr id="325daf81-14f2-802f-beb0-dd32e4ed868a"/></div><div style="display:contents" dir="auto"><h2 id="325daf81-14f2-80dd-9be0-ff784586536b" class=""><strong>第六章 气味保存瓶</strong></h2></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-80e7-8643-f8e7672f8a3e" class=""><strong>基础信息</strong></h3></div><div style="display:contents" dir="ltr"><table id="325daf81-14f2-8053-afd7-ef4e32b08ddc" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-8007-b975-c3833b9b0ddf"><th id="=HO&lt;" class="simple-table-header-color simple-table-header"><strong>项目</strong></th><th id="Wri@" class="simple-table-header-color simple-table-header"><strong>内容</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-80f2-bfcf-e55ae82d6ab5"><td id="=HO&lt;" class=""><strong>道具名称</strong></td><td id="Wri@" class="">气味保存瓶</td></tr></div><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-80fc-bcb6-cd0d2b3126b5"><td id="=HO&lt;" class=""><strong>发现者</strong></td><td id="Wri@" class="">岚步</td></tr></div><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-808e-b597-c6ea38bebef4"><td id="=HO&lt;" class=""><strong>发现地点</strong></td><td id="Wri@" class="">某个域限空间的杂货店</td></tr></div><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-8051-aecd-da8a3d33f47b"><td id="=HO&lt;" class=""><strong>外观描述</strong></td><td id="Wri@" class="">透明玻璃瓶，大小不一，瓶塞上有特殊符文</td></tr></div><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-806e-bfef-f4d9692c6f14"><td id="=HO&lt;" class=""><strong>功能</strong></td><td id="Wri@" class="">可以保存任何气味，打开后释放</td></tr></div><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-80ba-bb02-f4d4d3aebc44"><td id="=HO&lt;" class=""><strong>数量</strong></td><td id="Wri@" class="">一打（十二个）</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-804c-9cae-df480fb3fd3f" class=""><strong>功能描述</strong></h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8091-af6c-d51b61529936" class="">这些瓶子可以保存任何气味。只要把瓶子打开，对准想要保存的气味源，盖上瓶塞，气味就会被永久保存在瓶子里。打开瓶塞时，保存的气味会释放出来，持续约一分钟。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8098-9d26-db292199b02e" class="">这个功能听起来很浪漫——保存花香、保存记忆的味道、保存某个特殊时刻的气息。但实际用途嘛……</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-800e-a0a8-d9f2bbedfed5" class=""><strong>正常用途</strong></h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80a8-8410-fd6dbfaedbfc" class="">正经用途包括：保存故乡的气味、保存亲人的味道、或者保存某种珍贵的香料。破晓曾提议“保存咖啡的香气，随时闻”，被岚步以“你直接闻咖啡不就行了”为由驳回。</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-80a9-a8e0-d8a26985793f" class=""><strong>容易想歪的用途</strong></h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8085-b1ae-e8f346dc01c5" class="">这个道具的用途从一开始就跑偏。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80c7-bb6d-feac84decd70" class="">岚步第一次使用，保存了自己最爱的老北京布鞋的气味。他把瓶子放在床头，每天晚上打开闻一分钟再睡。他说“助眠，真的助眠”。德拉克问他为什么不直接闻鞋子，他说“鞋子要轮换着闻，这是珍藏版”。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80aa-a835-d698962433c1" class="">第二次使用，岚步保存了李松禄的体香。他把瓶子贴身放着，时不时拿出来闻一下。李松禄发现后说“操，你变态啊”，他说“你不在的时候可以闻”。邪神在旁边说“他——真的——很爱——你”。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80b9-8617-d253da6ff1f5" class="">第三次使用，德拉克保存了金币的气味。他解释说“金币的味道很特别，值得保存”。破晓问他“你每天数钱还闻不够”，他说“不一样的，这个浓缩”。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-808a-bb16-e57542a3c381" class="">第四次使用，破晓保存了干净杯子的气味。他说“刚擦完的杯子有一种清新的气息”。苍蓝说“我只知道星辰发光的味道”。李松禄说“操，你们都有病”。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8056-92ce-c68a9eea17d2" class="">第五次使用，苍蓝保存了星辰发光的“气味”——虽然星辰发光并没有气味，但他坚持说有。每次打开瓶子，星辰就会特别亮，像是在配合。</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-8079-bc0d-f6814223f5f4" class=""><strong>德拉克的商业提案</strong></h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80ab-ad3c-fca9edc6d82c" class="">德拉克针对这些瓶子提出过一系列商业计划：</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80e4-8a08-fd92103f7f4d" class="">“气味体验馆”——让客人闻各种保存的气味。定价五十一次，可选类别（老北京布鞋区、金币区、咖啡区、星辰区等）。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8064-abce-cfee8c26e339" class="">“定制气味服务”——为客人保存他们想要的气味。定价一百一次，上门服务加收五十。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-803c-9455-fca61acdebb7" class="">“气味盲盒”——随机保存各种气味，让客人买回去猜是什么。定价三十一盒，限量发售。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8053-9c18-d4f617cb4aed" class="">“气味体验馆”被岚步以“我的老北京布鞋气味不对外”为由驳回。“定制气味服务”被李松禄以“操，你上门保存什么气味”为由驳回。“气味盲盒”被破晓以“万一保存到不该保存的气味怎么办”为由驳回。</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-80e8-80ee-f8288f9423f1" class=""><strong>使用记录</strong></h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8027-9263-e5b8a581155a" class="">十二个气味保存瓶的使用情况如下：</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8014-a05e-f2b27e19b56a" class="">岚步占用了四个：一个老北京布鞋珍藏版，一个李松禄体香，一个自己脚的味道，一个备用。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8062-b8a0-d93e8b36e9e1" class="">德拉克占用了两个：一个金币气味，一个财迷光环下的特殊气味（他自己都说不清是什么）。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8064-8a87-fb5c104034eb" class="">破晓占用了两个：一个干净杯子气味，一个咖啡豆新鲜烘焙味。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-804d-83fb-fcc75ed81b3b" class="">苍蓝占用了两个：一个星辰发光味，一个海风味。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8094-8647-cb9b9116ee45" class="">李松禄占用了两个：一个KFC炸鸡味，一个备用（还没想好装什么）。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-802b-82b9-ffa26bd3ec73" class="">老板对瓶子表达了兴趣，但拒绝透露想装什么气味。小金试图装自己的气味，但瓶子太大它钻不进去。</p></div><div style="display:contents" dir="auto"><hr id="325daf81-14f2-8075-ac53-d08c373fdc52"/></div><div style="display:contents" dir="auto"><h2 id="325daf81-14f2-806f-889b-cb44eee0bcbb" class=""><strong>第七章 身体分离剪刀</strong></h2></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-80e9-b723-e3cab2b428f8" class=""><strong>基础信息</strong></h3></div><div style="display:contents" dir="ltr"><table id="325daf81-14f2-80d9-8248-c40346e50271" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-807d-8612-d00d852b1bb7"><th id="p_\|" class="simple-table-header-color simple-table-header"><strong>项目</strong></th><th id="V`t~" class="simple-table-header-color simple-table-header"><strong>内容</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-80c5-a434-e7adafc489aa"><td id="p_\|" class=""><strong>道具名称</strong></td><td id="V`t~" class="">身体分离剪刀</td></tr></div><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-80b6-a0d9-d6ab3e29557b"><td id="p_\|" class=""><strong>发现者</strong></td><td id="V`t~" class="">破晓</td></tr></div><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-80d0-bfb9-f452ea77c383"><td id="p_\|" class=""><strong>发现地点</strong></td><td id="V`t~" class="">手镯箱子旁边</td></tr></div><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-8098-9e67-cb6c53c59f29"><td id="p_\|" class=""><strong>外观描述</strong></td><td id="V`t~" class="">金色剪刀，刀刃上有特殊符文</td></tr></div><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-8099-bbf3-d383815ef851"><td id="p_\|" class=""><strong>功能</strong></td><td id="V`t~" class="">可以暂时分离身体的任何部位，剪开后无痛无伤，可随时接回</td></tr></div><div style="display:contents" dir="ltr"><tr id="325daf81-14f2-8000-a889-e83c07d00f6a"><td id="p_\|" class=""><strong>数量</strong></td><td id="V`t~" class="">一把</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-805d-9a8f-c6468e69ddc4" class=""><strong>功能描述</strong></h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8079-9fd0-ce73c8d7c878" class="">这把剪刀可以暂时分离身体的任何部位。被剪开的部位会脱离身体，但不会出血、不会疼痛，而且可以像平时一样控制。只要把分离的部位对准剪口，它就会自动接回去。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8054-b6a8-ff4eedb7dcad" class="">这个功能听起来像是手镯的升级版——手镯需要戴在部位上才能分离，剪刀可以直接剪。但实际用途嘛……</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-80e3-9038-e77601112cfb" class=""><strong>正常用途</strong></h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8043-95ab-ff4a60c4d5ea" class="">正经用途包括：在不方便移动的情况下分离肢体、在医疗场景下方便处理伤口、或者在紧急情况下“断臂求生”。德拉克第一次看到时想的是“剪下金币手去抓更多金币”，被李松禄以“操，你手剪下来怎么抓”为由驳回。</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-80f0-867e-eaf49ab7c737" class=""><strong>容易想歪的用途</strong></h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-803a-b535-dd68f23eb5a0" class="">这个剪刀的用途从一开始就跑偏。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80fa-bdef-da89451c0202" class="">破晓第一次使用，剪下自己的右手，让它自己去擦杯子。他的右手在空中飘着，拿着抹布擦吧台后面的死角。他说“这样我可以同时擦两个地方”。李松禄说“操，你真是……”。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80b7-bc88-f3e18b9e0c6f" class="">岚步看到后，剪下自己的脚，让它自己去闻鞋子。他的脚飘到鞋柜前，一只一只地闻，他本人躺在沙发上指挥。他说“效率真高”。德拉克在旁边说“这是……自动化……闻鞋”。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8059-ab93-df4ed2231d41" class="">德拉克剪下自己的翅膀，让它们自己飞。他的翅膀在咖啡馆里飞来飞去，他本人坐着数钱。他说“这样我可以一边数钱一边巡视”。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80ce-b64d-c5380a6037fd" class="">苍蓝剪下星辰的发光部位——等等，星辰不是身体部位，剪不下来。他尝试了三次失败后放弃。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80ba-8aae-debb41c66d0a" class="">李松禄剪下自己的尾巴，让它自己在空中晃。他的尾巴飘在他头顶，晃来晃去，他本人躺着。他说“这样我可以一边躺着一晃尾巴，完美”。</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-8031-b9b7-e0b67c90a0d3" class=""><strong>德拉克的商业提案</strong></h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-807f-b580-eef255ceb866" class="">德拉克针对这把剪刀提出过一系列商业计划：</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80ff-b5aa-f488bc0c53b3" class="">“多任务处理服务”——帮客人剪下部位让他们同时做多件事。定价二百一次，包教学。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80fe-abde-d5d05630127c" class="">“部位出租”——把自己不用的部位租给别人用。定价根据部位浮动。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8087-a276-d268449b3f74" class="">“自动化工作坊”——培训客人使用剪刀实现自动化生活。定价五百一期。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8060-ae72-d1ad27e693bf" class="">“多任务处理服务”被破晓以“这不就是教人偷懒吗”为由驳回。“部位出租”被岚步以“我的脚不外借”为由驳回。“自动化工作坊”被李松禄以“操，我们自己的生活还不够自动化吗”为由驳回。</p></div><div style="display:contents" dir="auto"><h3 id="325daf81-14f2-802a-982f-d887d9fce202" class=""><strong>使用记录</strong></h3></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8032-b58a-ffccf90adea8" class="">身体分离剪刀共使用五十三次。其中十五次用于破晓多任务擦杯子，十二次用于岚步自动化闻鞋，十次用于德拉克一边数钱一边飞，八次用于李松禄一边躺着一晃尾巴，五次用于六只小龙的“部位游戏”（它们剪下自己的触手/翅膀/尾巴互相玩），三次用于苍蓝尝试剪星辰（失败）。</p></div><div style="display:contents" dir="auto"><hr id="325daf81-14f2-80f0-b5f9-d24a5072a302"/></div><div style="display:contents" dir="auto"><h2 id="325daf81-14f2-8087-a6bf-ff0c2e02ba92" class=""><strong>第八章 总结</strong></h2></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-807c-b19d-d28d8b9bcee6" class="">【破罐咖啡馆】的特殊道具收藏，已经形成了一个小型博物馆。德拉克曾提议开一个“特殊道具体验馆”，被李松禄以“操，你是嫌我们不够乱吗”为由驳回。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80f7-a100-cdeb1d4722f1" class="">这些道具的共性在于：它们都有正经的用途，但在实际使用中总是往奇怪的方向跑偏。这或许不是因为道具本身有问题，而是因为使用它们的人有问题。</p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-802f-93eb-c234f23833cd" class="">正如老板在某次目睹李松禄和岚步在定格时空里全裸逛街后说的那句“喵”——翻译过来大概是：道具是正经的，人是不正经的。</p></div><div style="display:contents" dir="auto"><hr id="325daf81-14f2-80e6-9c1b-e4955da17b89"/></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80f7-96c2-da4242d5b85f" class=""><strong>【档案完】</strong></p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-805e-8043-f92ca6f64bca" class=""><em>整理人：德拉克（一边数钱一边记录，偶尔停下想象新用途）</em></p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-8011-a2ac-fddc302a374f" class=""><em>审核人：老板（喵，表示“你们这些东西我都知道”）</em></p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-80a6-9e56-c784bf2e10c3" class=""><em>见证人：星辰（持续发光，记录一切）</em></p></div><div style="display:contents" dir="auto"><p id="325daf81-14f2-804b-b0d5-dd7585f62c7c" class=""><em>特别鸣谢：六只小龙（提供道具试用反馈）</em></p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
