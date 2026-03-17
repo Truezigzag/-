@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-abyss text-mist antialiased;
+  background-image: linear-gradient(rgba(8, 7, 14, 0.92), rgba(8, 7, 14, 0.97)),
+    radial-gradient(circle at top, rgba(138, 123, 255, 0.13), transparent 40%),
+    radial-gradient(circle at bottom, rgba(255, 106, 106, 0.12), transparent 40%);
+  min-height: 100vh;
+}
+
+.glass {
+  @apply border border-white/10 bg-white/[0.03] backdrop-blur-xl;
+}
+
+.noise::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.2;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 0.5px, transparent 0.5px);
+  background-size: 3px 3px;
+}
